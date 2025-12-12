@@ -4,258 +4,34 @@
     <meta charset="UTF-8" />
     <title>神羅万象 Fourier | 宇宙の波形を読み解くフーリエ占い</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Tailwind CSS CDN（本番では自前ビルド推奨） -->
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-      /* ちょっとだけカスタム（背景のグラデーションなど） */
       body {
         background: radial-gradient(circle at top, #1b2340 0, #050816 45%, #02010d 100%);
       }
     </style>
   </head>
+
   <body class="min-h-screen text-slate-100">
-    <!-- ページ全体ラッパー -->
     <div class="min-h-screen flex flex-col">
+
       <!-- Header -->
       <header class="w-full">
         <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <!-- ロゴ -->
+          <!-- Logo -->
           <div class="flex items-center gap-2">
             <div class="h-9 w-9 rounded-full border border-yellow-400/60 flex items-center justify-center text-xs tracking-widest">
               波
             </div>
             <div class="flex flex-col leading-tight">
-              <span class="font-semibold tracking-[0.18em] text-xs uppercase text-yellow-300/90">
-                Shinra Bansho
-              </span>
-              <span class="font-semibold text-slate-50 text-lg">
-                神羅万象 Fourier
-              </span>
+              <span class="font-semibold tracking-[0.18em] text-xs uppercase text-yellow-300/90">Shinra Bansho</span>
+              <span class="font-semibold text-slate-50 text-lg">神羅万象 Fourier</span>
             </div>
           </div>
 
-          <!-- ナビゲーション -->
           <nav class="hidden md:flex items-center gap-8 text-sm">
             <a href="#about" class="hover:text-yellow-300 transition-colors">About</a>
-            <a href="#how" class="hover:text-yellow-300 transition-colors">How it works</a>
-            <a href="#start" class="px-4 py-2 rounded-full border border-yellow-300/60 hover:bg-yellow-300/10 text-yellow-200 text-xs tracking-[0.2em] uppercase transition-colors">
-              Start
-            </a>
-          </nav>
-
-          <!-- モバイルメニュー（ダミー） -->
-          <button class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-slate-600/60">
-            <span class="sr-only">メニューを開く</span>
-            <div class="space-y-1.5">
-              <span class="block w-5 h-[2px] bg-slate-200"></span>
-              <span class="block w-5 h-[2px] bg-slate-200"></span>
-              <span class="block w-5 h-[2px] bg-slate-200"></span>
-            </div>
-          </button>
-        </div>
-      </header>
-
-      <!-- Main -->
-      <main class="flex-1">
-        <!-- Hero セクション -->
-        <section
-          class="mx-auto max-w-6xl px-4 pt-10 pb-16 lg:pt-16 lg:pb-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
-        >
-          <!-- 左カラム：コピー＆ボタン -->
-          <div class="flex-1">
-            <p class="text-xs tracking-[0.45em] uppercase text-yellow-200/75 mb-3">
-              四季 × 宇宙 × 周期
-            </p>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-5">
-              宇宙の波形を読み解く、<br />
-              <span class="text-yellow-300">あなた専用のフーリエ占い。</span>
-            </h1>
-            <p class="text-sm md:text-base text-slate-300/90 max-w-xl mb-8 leading-relaxed">
-              過去の出来事とリズムから、あなたの「人生の周波数」を解析し、<br
-              class="hidden md:inline" />
-              次の飛躍のタイミングを可視化します。<br />
-              スピリチュアルでも、単なる統計でもない、<br class="hidden md:inline" />
-              <span class="text-slate-100">科学と哲理が交差する新しい占い体験</span>です。
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4" id="start">
-              <a
-                href="/start"
-                class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-yellow-300 text-slate-900 text-sm font-semibold shadow-lg shadow-yellow-300/20 hover:bg-yellow-200 transition-colors"
-              >
-                波形を解析する
-              </a>
-              <a
-                href="#how"
-                class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-slate-500/70 text-sm text-slate-200 hover:border-yellow-300/70 hover:text-yellow-200 transition-colors"
-              >
-                まずは仕組みを知る
-              </a>
-            </div>
-
-            <!-- 小さな信頼感テキスト -->
-            <p class="mt-4 text-xs text-slate-400">
-              ※ 生年月日などの基本情報だけで、カンタンに体験できます。
-            </p>
-          </div>
-
-          <!-- 右カラム：波形ビジュアル領域 -->
-          <div class="flex-1 w-full">
-            <div
-              class="relative w-full aspect-[4/3] rounded-3xl border border-slate-700/80 bg-gradient-to-br from-indigo-900/60 via-slate-900/80 to-fuchsia-900/60 overflow-hidden shadow-[0_0_60px_rgba(15,23,42,0.9)]"
-            >
-              <!-- ここを Three.js / Canvas で差し替え予定 -->
-              <div class="absolute inset-0 opacity-60 pointer-events-none">
-                <div
-                  class="absolute -left-10 top-1/3 w-[140%] h-40 bg-gradient-to-r from-sky-300/60 via-purple-400/80 to-pink-300/70 blur-3xl"
-                ></div>
-                <div
-                  class="absolute left-1/4 top-10 w-40 h-40 rounded-full border border-sky-200/20"
-                ></div>
-                <div
-                  class="absolute right-10 bottom-12 w-28 h-28 rounded-full border border-purple-200/20"
-                ></div>
-              </div>
-
-              <!-- 擬似的な波形グリッド -->
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 400 240"
-                  class="w-[90%] text-sky-200/80"
-                  aria-hidden="true"
-                >
-                  <!-- グリッド線 -->
-                  <g stroke="rgba(148,163,184,0.25)" stroke-width="0.4">
-                    <!-- 縦線 -->
-                    <path d="M20 20 V220" />
-                    <path d="M80 20 V220" />
-                    <path d="M140 20 V220" />
-                    <path d="M200 20 V220" />
-                    <path d="M260 20 V220" />
-                    <path d="M320 20 V220" />
-                    <path d="M380 20 V220" />
-                    <!-- 横線 -->
-                    <path d="M20 40 H380" />
-                    <path d="M20 80 H380" />
-                    <path d="M20 120 H380" />
-                    <path d="M20 160 H380" />
-                    <path d="M20 200 H380" />
-                  </g>
-                  <!-- 合成波（例） -->
-                  <polyline
-                    fill="none"
-                    stroke="url(#waveGrad)"
-                    stroke-width="2.2"
-                    points="
-                      20,140 40,120 60,135 80,100 100,120 120,80 140,110 160,70
-                      180,90 200,60 220,85 240,70 260,95 280,120 300,110 320,140 340,135 360,160 380,150
-                    "
-                  />
-                  <!-- グラデーション定義 -->
-                  <defs>
-                    <linearGradient id="waveGrad" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="0%" stop-color="#7dd3fc" />
-                      <stop offset="50%" stop-color="#c4b5fd" />
-                      <stop offset="100%" stop-color="#fb7185" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-
-              <!-- ラベル群 -->
-              <div class="absolute left-4 top-4 space-y-1 text-[10px] leading-tight">
-                <div class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-slate-900/70 border border-slate-600/70">
-                  <span class="w-2 h-2 rounded-full bg-sky-300"></span>
-                  <span class="uppercase tracking-[0.18em] text-[9px] text-slate-300">
-                    Base Frequency
-                  </span>
-                  <span class="text-slate-100 font-semibold">11ヶ月周期</span>
-                </div>
-                <div class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-slate-900/60 border border-purple-500/50 mt-1">
-                  <span class="w-2 h-2 rounded-full bg-purple-300"></span>
-                  <span class="text-[9px] text-slate-200">2.4年周期の共鳴</span>
-                </div>
-              </div>
-
-              <div class="absolute right-4 bottom-4 text-right text-[10px] text-slate-300/80">
-                <p>「今、波のどこにいるのか？」</p>
-                <p>その問いに、フーリエ変換で答えます。</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 3カラム説明セクション -->
-        <section id="how" class="border-t border-slate-800/80 bg-slate-950/40">
-          <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-            <h2 class="text-center text-xl md:text-2xl font-semibold mb-8 text-slate-50">
-              神羅万象フーリエ占いの 3 つのステップ
-            </h2>
-
-            <div class="grid gap-6 md:grid-cols-3">
-              <!-- カード1 -->
-              <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col gap-3">
-                <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-xs text-slate-200">
-                  1
-                </div>
-                <h3 class="font-semibold text-slate-100 text-base">
-                  波で読む
-                </h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  過去の「好調だった時期」「重かった時期」を入力し、
-                  人生の出来事を <span class="text-slate-50 font-medium">時間の波</span> として捉えます。
-                  そのデータをもとに、フーリエ変換で周期を抽出します。
-                </p>
-              </div>
-
-              <!-- カード2 -->
-              <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col gap-3">
-                <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-xs text-slate-200">
-                  2
-                </div>
-                <h3 class="font-semibold text-slate-100 text-base">
-                  宇宙と照合する
-                </h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  抽出した周期を、木星や土星などの
-                  <span class="text-slate-50 font-medium">天体周期</span>、そして
-                  あなたの哲理に基づく
-                  <span class="text-slate-50 font-medium">陰陽・渦のサイクル</span>
-                  と照合し、どのリズムと共鳴しているかを解析します。
-                </p>
-              </div>
-
-              <!-- カード3 -->
-              <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col gap-3">
-                <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-xs text-slate-200">
-                  3
-                </div>
-                <h3 class="font-semibold text-slate-100 text-base">
-                  行動に変える
-                </h3>
-                <p class="text-sm text-slate-300 leading-relaxed">
-                  「いつ動くか」「いつ整えるか」。<br />
-                  ただ当てるのではなく、
-                  <span class="text-slate-50 font-medium">波に乗るための行動タイミング</span>
-                  として、未来のピーク・谷をカレンダー感覚でお返しします。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer class="border-t border-slate-800/80 bg-slate-950/60">
-        <div class="mx-auto max-w-6xl px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© 2025 神羅万象グリッド Fourier Oracle</p>
-          <div class="flex gap-4">
-            <a href="#about" class="hover:text-slate-300 transition-colors">About</a>
-            <a href="#" class="hover:text-slate-300 transition-colors">プライバシー</a>
-            <a href="#" class="hover:text-slate-300 transition-colors">利用規約</a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
+            <a href="#how" c
