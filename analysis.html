@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>神羅万象 Fourier | 波形解析結果</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: radial-gradient(circle at top, #1b2340 0, #050816 45%, #02010d 100%);
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen text-slate-100">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header（共通） -->
+      <header class="w-full">
+        <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+          <!-- ロゴ -->
+          <div class="flex items-center gap-2">
+            <div class="h-9 w-9 rounded-full border border-yellow-400/60 flex items-center justify-center text-xs tracking-widest">
+              波
+            </div>
+            <div class="flex flex-col leading-tight">
+              <span class="font-semibold tracking-[0.18em] text-xs uppercase text-yellow-300/90">
+                Shinra Bansho
+              </span>
+              <span class="font-semibold text-slate-50 text-lg">
+                神羅万象 Fourier
+              </span>
+            </div>
+          </div>
+
+          <!-- ナビ -->
+          <nav class="hidden md:flex items-center gap-8 text-sm">
+            <a href="/index.html" class="hover:text-yellow-300 transition-colors">Home</a>
+            <a href="#about" class="hover:text-yellow-300 transition-colors">About</a>
+            <a href="#how" class="hover:text-yellow-300 transition-colors">How it works</a>
+          </nav>
+
+          <!-- モバイルメニュー（ダミー） -->
+          <button class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-slate-600/60">
+            <span class="sr-only">メニューを開く</span>
+            <div class="space-y-1.5">
+              <span class="block w-5 h-[2px] bg-slate-200"></span>
+              <span class="block w-5 h-[2px] bg-slate-200"></span>
+              <span class="block w-5 h-[2px] bg-slate-200"></span>
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="flex-1">
+        <section class="mx-auto max-w-6xl px-4 pt-8 pb-16">
+          <!-- Step表示 -->
+          <p class="text-xs tracking-[0.35em] uppercase text-yellow-200/80 mb-3">
+            Step 3 / Fourier Analysis Result
+          </p>
+
+          <!-- タイトル -->
+          <h1 class="text-2xl md:text-3xl font-semibold mb-6">
+            あなたの人生の<br class="hidden md:inline" />
+            「周波数スペクトラム」が抽出されました。
+          </h1>
+
+          <p class="text-sm md:text-base text-slate-300/90 mb-10 leading-relaxed max-w-2xl">
+            あなたが入力した “好調” と “停滞” のデータをフーリエ変換し、  
+            人生に繰り返し現れる **周期（周波数成分）** を抽出しました。  
+            ここでは、あなたの波の “強い周期” と “合成された人生の波形” が確認できます。
+          </p>
+
+          <!-- 結果カード（概要） -->
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 md:p-7 shadow-[0_0_40px_rgba(15,23,42,0.9)] mb-10">
+            <h2 class="text-lg font-semibold mb-3 text-slate-50">解析サマリー</h2>
+            <p class="text-sm leading-relaxed text-slate-300">
+              あなたの人生には、  
+              <span class="text-yellow-300 font-semibold">「約11ヶ月周期」</span> と  
+              <span class="text-indigo-300 font-semibold">「約2.4年周期」</span> の波が特に強く現れています。<br />
+              これらは仕事運・人生の方向性・気分エネルギーの大局的な流れと共鳴しています。
+            </p>
+          </div>
+
+          <!-- FFTスペクトラム -->
+          <h2 class="text-xl font-semibold mb-4">周波数スペクトラム（FFT）</h2>
+
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 mb-12">
+            <div class="w-full flex justify-center">
+              <svg viewBox="0 0 600 260" class="w-full max-w-3xl">
+                <!-- グリッド線 -->
+                <g stroke="rgba(148,163,184,0.25)" stroke-width="0.5">
+                  <path d="M0 220 H600" />
+                  <path d="M0 180 H600" />
+                  <path d="M0 140 H600" />
+                  <path d="M0 100 H600" />
+                  <path d="M0 60 H600" />
+                  <path d="M0 20 H600" />
+                </g>
+
+                <!-- バー（ダミー値） -->
+                <rect x="40" y="120" width="40" height="100" fill="#38bdf8" opacity="0.7" />
+                <rect x="120" y="60" width="40" height="160" fill="#60a5fa" opacity="0.8" />
+                <rect x="200" y="90" width="40" height="130" fill="#a78bfa" opacity="0.85" />
+                <rect x="280" y="40" width="40" height="180" fill="#f472b6" opacity="0.8" />
+                <rect x="360" y="140" width="40" height="80" fill="#fb7185" opacity="0.7" />
+                <rect x="440" y="110" width="40" height="110" fill="#fbbf24" opacity="0.7" />
+
+                <!-- ラベル -->
+                <text x="120" y="55" fill="#60a5fa" font-size="12">11ヶ月周期</text>
+                <text x="280" y="35" fill="#f472b6" font-size="12">2.4年周期</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 合成波（人生の波形） -->
+          <h2 class="text-xl font-semibold mb-4">合成波（あなたの人生の波形）</h2>
+
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 mb-12">
+            <div class="w-full flex justify-center">
+              <svg viewBox="0 0 600 240" class="w-full max-w-3xl">
+                <!-- グリッド -->
+                <g stroke="rgba(148,163,184,0.20)" stroke-width="0.4">
+                  <path d="M0 200 H600" />
+                  <path d="M0 160 H600" />
+                  <path d="M0 120 H600" />
+                  <path d="M0 80 H600" />
+                  <path d="M0 40 H600" />
+                </g>
+
+                <!-- 合成波のライン（例） -->
+                <polyline
+                  fill="none"
+                  stroke="url(#waveGrad)"
+                  stroke-width="2.3"
+                  points="
+                    0,150 40,120 80,150 120,80 160,120 200,70 240,110 280,60
+                    320,100 360,70 400,120 440,150 480,135 520,170 560,160 600,180
+                  "
+                />
+
+                <!-- グラデーション定義 -->
+                <defs>
+                  <linearGradient id="waveGrad" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#7dd3fc" />
+                    <stop offset="50%" stop-color="#c4b5fd" />
+                    <stop offset="100%" stop-color="#fb7185" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <!-- 現在位置ラベル -->
+            <p class="mt-4 text-sm text-slate-300/90">
+              ● 現在の位置：波の「中腹」  
+              → 次の上昇ピークは <span class="text-yellow-300 font-semibold">約14日後</span> に到来します。
+            </p>
+          </div>
+
+          <!-- 宇宙周期との共鳴 -->
+          <h2 class="text-xl font-semibold mb-4">宇宙のサイクルとの共鳴度</h2>
+
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 mb-12">
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li>🌕 木星周期（約12年）との共鳴：<span class="text-yellow-300 font-semibold">83%</span></li>
+              <li>🪐 土星周期（サターンリターン：約29.5年）：<span class="text-indigo-300 font-semibold">35%</span></li>
+              <li>💫 金星逆行サイクル：<span class="text-pink-300 font-semibold">57%</span></li>
+            </ul>
+
+            <p class="mt-3 text-xs text-slate-400">
+              ※ 周期が高く共鳴するほど、社会全体の波とあなた個人の波が同期しやすくなります。
+            </p>
+          </div>
+
+          <!-- 陰陽バランスメーター（ダミー） -->
+          <h2 class="text-xl font-semibold mb-4">陰陽バランス</h2>
+
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 mb-12 flex flex-col items-start">
+            <div class="relative w-40 h-40 mx-auto">
+              <svg viewBox="0 0 100 100" class="w-full h-full">
+                <!-- 陽（62%） -->
+                <path d="M50 50 L50 0 A50 50 0 1 1 50 100 Z" fill="#facc15" opacity="0.7"></path>
+                <!-- 陰（38%） -->
+                <path d="M50 50 L50 100 A50 50 0 1 1 50 0 Z" fill="#3b82f6" opacity="0.6"></path>
+              </svg>
+            </div>
+
+            <p class="mt-3 text-sm text-slate-300">
+              現在のバランス：  
+              <span class="text-yellow-300 font-semibold">陽 62%</span> ／  
+              <span class="text-slate-200 font-semibold">陰 38%</span>
+            </p>
+
+            <p class="mt-1 text-xs text-slate-400 leading-relaxed">
+              → 動き・挑戦・拡大に適したフェーズ（陽優位）です。  
+              内省よりも “外に出る行動” が波と調和します。
+            </p>
+          </div>
+
+          <!-- ボタン群 -->
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <button
+              onclick="window.location.href='/forecast.html';"
+              class="inline-flex flex-1 items-center justify-center px-6 py-3 rounded-full bg-yellow-300 text-slate-900 text-sm font-semibold shadow-lg shadow-yellow-300/20 hover:bg-yellow-200 transition-colors"
+            >
+              未来の波を確認する
+            </button>
+
+            <a
+              href="/events.html"
+              class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-slate-600 text-sm text-slate-200 hover:border-yellow-300/70 hover:text-yellow-200 transition-colors"
+            >
+              入力をやり直す
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-800/80 bg-slate-950/60">
+        <div class="mx-auto max-w-6xl px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <p>© 2025 神羅万象グリッド Fourier Oracle</p>
+          <div class="flex gap-4">
+            <a href="#about" class="hover:text-slate-300 transition-colors">About</a>
+            <a href="#" class="hover:text-slate-300 transition-colors">プライバシー</a>
+            <a href="#" class="hover:text-slate-300 transition-colors">利用規約</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

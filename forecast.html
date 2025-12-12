@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>神羅万象 Fourier | 未来の波形予測</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: radial-gradient(circle at top, #1b2340 0, #050816 45%, #02010d 100%);
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen text-slate-100">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="w-full">
+        <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+          <!-- ロゴ -->
+          <div class="flex items-center gap-2">
+            <div class="h-9 w-9 rounded-full border border-yellow-400/60 flex items-center justify-center text-xs tracking-widest">
+              波
+            </div>
+            <div class="flex flex-col leading-tight">
+              <span class="font-semibold tracking-[0.18em] text-xs uppercase text-yellow-300/90">
+                Shinra Bansho
+              </span>
+              <span class="font-semibold text-slate-50 text-lg">
+                神羅万象 Fourier
+              </span>
+            </div>
+          </div>
+
+          <!-- ナビ -->
+          <nav class="hidden md:flex items-center gap-8 text-sm">
+            <a href="/index.html" class="hover:text-yellow-300 transition-colors">Home</a>
+            <a href="#about" class="hover:text-yellow-300 transition-colors">About</a>
+            <a href="#how" class="hover:text-yellow-300 transition-colors">How it works</a>
+          </nav>
+
+          <!-- モバイルメニュー（ダミー） -->
+          <button class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-slate-600/60">
+            <span class="sr-only">メニューを開く</span>
+            <div class="space-y-1.5">
+              <span class="block w-5 h-[2px] bg-slate-200"></span>
+              <span class="block w-5 h-[2px] bg-slate-200"></span>
+              <span class="block w-5 h-[2px] bg-slate-200"></span>
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="flex-1">
+        <section class="mx-auto max-w-6xl px-4 pt-8 pb-16 md:pt-12 md:pb-24">
+          <!-- Step表示 -->
+          <p class="text-xs tracking-[0.35em] uppercase text-yellow-200/80 mb-3">
+            Step 4 / Future Wave Forecast
+          </p>
+
+          <!-- タイトル -->
+          <h1 class="text-2xl md:text-3xl font-semibold mb-3">
+            これから 2 年間の<br class="hidden md:inline" />
+            「未来の波形」を見てみましょう。
+          </h1>
+
+          <p class="text-sm md:text-base text-slate-300/90 mb-8 leading-relaxed max-w-2xl">
+            抽出された周期を合成し、  
+            これから約 2 年間の「上昇」「谷」「転換点」の流れを可視化しました。<br />
+            ここでは、波に乗るタイミング・整えるタイミングを確認できます。
+          </p>
+
+          <!-- 未来波形グラフ -->
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 md:p-7 mb-10">
+            <div class="flex items-center justify-between mb-4 gap-4">
+              <h2 class="text-lg font-semibold text-slate-50">
+                未来 24 ヶ月の合成波
+              </h2>
+              <p class="text-[11px] text-slate-400">
+                金色ゾーン：上昇期 ／ 紫ゾーン：内省・調整期
+              </p>
+            </div>
+
+            <div class="w-full flex justify-center">
+              <svg viewBox="0 0 640 260" class="w-full max-w-4xl">
+                <!-- 背景グリッド -->
+                <g stroke="rgba(148,163,184,0.20)" stroke-width="0.4">
+                  <path d="M0 220 H640" />
+                  <path d="M0 180 H640" />
+                  <path d="M0 140 H640" />
+                  <path d="M0 100 H640" />
+                  <path d="M0 60 H640" />
+                  <path d="M0 20 H640" />
+                </g>
+
+                <!-- 上昇ゾーン（例） -->
+                <rect x="60" y="20" width="120" height="200" fill="#facc1530" />
+                <rect x="360" y="20" width="110" height="200" fill="#facc1530" />
+                <!-- 谷ゾーン（例） -->
+                <rect x="210" y="20" width="100" height="200" fill="#a855f730" />
+                <rect x="500" y="20" width="80" height="200" fill="#a855f730" />
+
+                <!-- 合成波ライン（ダミー） -->
+                <polyline
+                  fill="none"
+                  stroke="url(#futureWaveGrad)"
+                  stroke-width="2.4"
+                  points="
+                    0,150 40,130 80,110 120,80 160,90 200,120 240,170 280,190
+                    320,160 360,120 400,80 440,90 480,130 520,160 560,190 600,175 640,160
+                  "
+                />
+
+                <!-- 今日の位置（左側寄りに設定） -->
+                <line x1="80" y1="20" x2="80" y2="220" stroke="#e5e7eb" stroke-width="1.3" stroke-dasharray="4 4" />
+                <text x="86" y="32" fill="#e5e7eb" font-size="11">今日</text>
+
+                <!-- グラデーション定義 -->
+                <defs>
+                  <linearGradient id="futureWaveGrad" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#7dd3fc" />
+                    <stop offset="50%" stop-color="#c4b5fd" />
+                    <stop offset="100%" stop-color="#fb7185" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <!-- ピーク・谷のカード群 -->
+          <div class="grid gap-6 md:grid-cols-2 mb-10">
+            <!-- 飛躍期カード -->
+            <div class="rounded-2xl border border-yellow-400/50 bg-yellow-400/5 p-5 flex flex-col gap-2">
+              <h2 class="text-sm font-semibold text-yellow-200">
+                次の大きな飛躍期
+              </h2>
+              <p class="text-lg font-semibold text-slate-50">
+                2026年2月 〜 4月頃
+              </p>
+              <p class="text-sm text-slate-200 leading-relaxed">
+                11ヶ月周期と 2.4年周期のピークが重なり、  
+                行動が「結果」に結びつきやすい期間です。<br />
+                新しいプロジェクトのスタート・拡大・挑戦に適しています。
+              </p>
+              <p class="mt-1 text-[11px] text-yellow-200/80">
+                キーワード：拡大・出会い・社会的な動き
+              </p>
+            </div>
+
+            <!-- 調整・内省期カード -->
+            <div class="rounded-2xl border border-fuchsia-400/50 bg-fuchsia-500/5 p-5 flex flex-col gap-2">
+              <h2 class="text-sm font-semibold text-fuchsia-200">
+                一度立ち止まるタイミング
+              </h2>
+              <p class="text-lg font-semibold text-slate-50">
+                2025年11月頃
+              </p>
+              <p class="text-sm text-slate-200 leading-relaxed">
+                波が谷に差しかかり、物事が停滞しやすい時期です。<br />
+                無理に前に進むよりも、土台の見直し・手放し・整理にエネルギーを使うことで、
+                次の上昇期にスムーズにつながります。
+              </p>
+              <p class="mt-1 text-[11px] text-fuchsia-200/80">
+                キーワード：調整・手放し・再定義
+              </p>
+            </div>
+
+            <!-- 小波カード -->
+            <div class="rounded-2xl border border-sky-400/50 bg-sky-500/5 p-5 flex flex-col gap-2">
+              <h2 class="text-sm font-semibold text-sky-200">
+                小さな波が立つ周期
+              </h2>
+              <p class="text-lg font-semibold text-slate-50">
+                約3〜4ヶ月ごとの揺らぎ
+              </p>
+              <p class="text-sm text-slate-200 leading-relaxed">
+                大きな上昇・下降とは別に、3〜4ヶ月ごとに  
+                「テーマの切り替え」や「人との入れ替わり」が起きやすい傾向があります。
+              </p>
+              <p class="mt-1 text-[11px] text-sky-200/80">
+                キーワード：微調整・テーマ変更・環境の入れ替わり
+              </p>
+            </div>
+
+            <!-- 陰陽の流れカード -->
+            <div class="rounded-2xl border border-slate-700/80 bg-slate-900/60 p-5 flex flex-col gap-2">
+              <h2 class="text-sm font-semibold text-slate-100">
+                陰陽の流れ（行動と内省のリズム）
+              </h2>
+              <p class="text-sm text-slate-200 leading-relaxed">
+                向こう 2 年で見ると、  
+                「陽（動く時期）」が 7 割、「陰（整える時期）」が 3 割という配分です。<br />
+                特に 2026 年前半は陽が強く、行動が波と同期しやすいフェーズです。
+              </p>
+              <p class="mt-1 text-[11px] text-slate-400">
+                → この波を前提に、仕事・移住・人間関係・学びのタイミングを設計することができます。
+              </p>
+            </div>
+          </div>
+
+          <!-- 行動アドバイス -->
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/50 p-6 md:p-7 mb-10">
+            <h2 class="text-lg font-semibold mb-3 text-slate-50">
+              波に乗るための行動アドバイス
+            </h2>
+            <ul class="space-y-2 text-sm text-slate-200 leading-relaxed">
+              <li>・上昇期（特に 2026年2〜4月）には、<span class="text-yellow-300 font-semibold">外向きの動き（発信・出会い・契約）</span> を意識する。</li>
+              <li>・谷の時期（2025年11月頃）は、<span class="text-fuchsia-300 font-semibold">手放し・整理・メンテナンス</span> に専念する。</li>
+              <li>・3〜4ヶ月ごとの小さな波は、「テーマの切り替え」のサイクルとして活用する。</li>
+              <li>・大きな決断は、可能であれば「上昇波が立ち上がる直前〜ピーク」に近づける。</li>
+            </ul>
+          </div>
+
+          <!-- ボタン群 -->
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <button
+              type="button"
+              onclick="window.location.href='/compatibility.html';"
+              class="inline-flex flex-1 items-center justify-center px-6 py-3 rounded-full bg-yellow-300 text-slate-900 text-sm font-semibold shadow-lg shadow-yellow-300/20 hover:bg-yellow-200 transition-colors"
+            >
+              相性フーリエ診断へ進む
+            </button>
+            <a
+              href="/analysis.html"
+              class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-slate-600 text-sm text-slate-200 hover:border-yellow-300/70 hover:text-yellow-200 transition-colors"
+            >
+              波形解析結果に戻る
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-800/80 bg-slate-950/60">
+        <div class="mx-auto max-w-6xl px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          <p>© 2025 神羅万象グリッド Fourier Oracle</p>
+          <div class="flex gap-4">
+            <a href="#about" class="hover:text-slate-300 transition-colors">About</a>
+            <a href="#" class="hover:text-slate-300 transition-colors">プライバシー</a>
+            <a href="#" class="hover:text-slate-300 transition-colors">利用規約</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
