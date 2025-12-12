@@ -34,4 +34,153 @@
 
           <nav class="hidden md:flex items-center gap-8 text-sm">
             <a href="#about" class="hover:text-yellow-300 transition-colors">About</a>
-            <a href="#how" c
+            <a href="#how" class="hover:text-yellow-300 transition-colors">How it works</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="flex-1">
+
+        <!-- Hero Section -->
+        <section class="mx-auto max-w-6xl px-4 pt-10 pb-16 lg:pt-16 lg:pb-24 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+
+          <!-- Left Column -->
+          <div class="flex-1">
+            <p class="text-xs tracking-[0.45em] uppercase text-yellow-200/75 mb-3">
+              四季 × 宇宙 × 周期
+            </p>
+
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-5">
+              宇宙の波形を読み解く、<br />
+              <span class="text-yellow-300">あなた専用のフーリエ占い。</span>
+            </h1>
+
+            <p class="text-sm md:text-base text-slate-300/90 max-w-xl mb-8 leading-relaxed">
+              過去の出来事から「人生の波形」を抽出し、  
+              あなたの周期・運気・宇宙リズムを解析します。
+              <br /><br />
+              スピリチュアルでも統計だけでもない。  
+              <span class="text-slate-50 font-medium">
+                科学 × 哲理 × 宇宙観が統合された新しい占い体験
+              </span>
+              です。
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <!-- ★ 修正済み → start.html へ遷移する -->
+              <a
+                href="start.html"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-yellow-300 text-slate-900 text-sm font-semibold shadow-lg shadow-yellow-300/20 hover:bg-yellow-200 transition-colors"
+              >
+                波形を解析する
+              </a>
+
+              <a
+                href="#how"
+                class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-slate-500/70 text-sm text-slate-200 hover:border-yellow-300/70 hover:text-yellow-200 transition-colors"
+              >
+                まずは仕組みを見る
+              </a>
+            </div>
+
+            <p class="mt-4 text-xs text-slate-400">
+              ※ 生年月日の入力だけでカンタンに体験できます。
+            </p>
+          </div>
+
+          <!-- Right Column (Visual Placeholder) -->
+          <div class="flex-1 w-full">
+            <div class="relative w-full aspect-[4/3] rounded-3xl border border-slate-700/80 bg-gradient-to-br from-indigo-900/60 via-slate-900/80 to-fuchsia-900/60 overflow-hidden shadow-[0_0_60px_rgba(15,23,42,0.9)]">
+
+              <!-- Decorative Wave -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg viewBox="0 0 400 240" class="w-[90%]" aria-hidden="true">
+                  <g stroke="rgba(148,163,184,0.25)" stroke-width="0.4">
+                    <path d="M20 20 V220" />
+                    <path d="M80 20 V220" />
+                    <path d="M140 20 V220" />
+                    <path d="M200 20 V220" />
+                    <path d="M260 20 V220" />
+                    <path d="M320 20 V220" />
+                    <path d="M380 20 V220" />
+                    <path d="M20 40 H380" />
+                    <path d="M20 80 H380" />
+                    <path d="M20 120 H380" />
+                    <path d="M20 160 H380" />
+                    <path d="M20 200 H380" />
+                  </g>
+
+                  <polyline
+                    fill="none"
+                    stroke="url(#waveGrad)"
+                    stroke-width="2.2"
+                    points="
+                      20,140 40,120 60,135 80,100 100,120 120,80 140,110
+                      160,70 180,90 200,60 220,85 240,70 260,95 280,120
+                      300,110 320,140 340,135 360,160 380,150
+                    "
+                  />
+
+                  <defs>
+                    <linearGradient id="waveGrad" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0%" stop-color="#7dd3fc" />
+                      <stop offset="50%" stop-color="#c4b5fd" />
+                      <stop offset="100%" stop-color="#fb7185" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how" class="border-t border-slate-800/80 bg-slate-950/40">
+          <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+
+            <h2 class="text-center text-xl md:text-2xl font-semibold mb-8 text-slate-50">
+              神羅万象フーリエ占いの流れ
+            </h2>
+
+            <div class="grid gap-6 md:grid-cols-3">
+              <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-xs text-slate-200">1</div>
+                <h3 class="font-semibold text-slate-100 mt-3 mb-2">波として記録する</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  好調・停滞の時期を入力し、人生の「波形データ」を作ります。
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-xs text-slate-200">2</div>
+                <h3 class="font-semibold text-slate-100 mt-3 mb-2">フーリエ変換で周期を抽出</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  人生の波を周波数に分解し、「あなた固有の周期」を解析します。
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-xs text-slate-200">3</div>
+                <h3 class="font-semibold text-slate-100 mt-3 mb-2">未来の波形を予測</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  周期を重ね合わせて未来の波形（運気）を予測します。
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-800/80 bg-slate-950/60">
+        <div class="mx-auto max-w-6xl px-4 py-5 text-xs text-slate-500">
+          © 2025 神羅万象グリッド Fourier Oracle
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
