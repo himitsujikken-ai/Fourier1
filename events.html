@@ -4,21 +4,24 @@
     <meta charset="UTF-8" />
     <title>神羅万象 Fourier | 波の記憶入力</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Tailwind CSS CDN -->
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
       body {
         background: radial-gradient(circle at top, #1b2340 0, #050816 45%, #02010d 100%);
       }
     </style>
   </head>
+
   <body class="min-h-screen text-slate-100">
     <div class="min-h-screen flex flex-col">
-      <!-- Header（共通） -->
+
+      <!-- Header -->
       <header class="w-full">
         <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <!-- ロゴ -->
-          <div class="flex items-center gap-2">
+          <a href="index.html" class="flex items-center gap-2">
             <div class="h-9 w-9 rounded-full border border-yellow-400/60 flex items-center justify-center text-xs tracking-widest">
               波
             </div>
@@ -30,273 +33,157 @@
                 神羅万象 Fourier
               </span>
             </div>
-          </div>
+          </a>
 
-          <!-- ナビゲーション -->
           <nav class="hidden md:flex items-center gap-8 text-sm">
-            <a href="/index.html" class="hover:text-yellow-300 transition-colors">Home</a>
-            <a href="#about" class="hover:text-yellow-300 transition-colors">About</a>
-            <a href="#how" class="hover:text-yellow-300 transition-colors">How it works</a>
+            <a href="index.html#about" class="hover:text-yellow-300 transition-colors">About</a>
+            <a href="index.html#how" class="hover:text-yellow-300 transition-colors">How it works</a>
           </nav>
-
-          <!-- モバイルメニュー（ダミー） -->
-          <button class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-slate-600/60">
-            <span class="sr-only">メニューを開く</span>
-            <div class="space-y-1.5">
-              <span class="block w-5 h-[2px] bg-slate-200"></span>
-              <span class="block w-5 h-[2px] bg-slate-200"></span>
-              <span class="block w-5 h-[2px] bg-slate-200"></span>
-            </div>
-          </button>
         </div>
       </header>
 
       <!-- Main -->
       <main class="flex-1">
-        <section class="mx-auto max-w-6xl px-4 pt-8 pb-16 md:pt-12 md:pb-24">
-          <div class="max-w-3xl mx-auto">
-            <!-- ステップ表示 -->
-            <p class="text-xs tracking-[0.35em] uppercase text-yellow-200/80 mb-3">
-              Step 2 / Life Waves
-            </p>
+        <section class="mx-auto max-w-6xl px-4 pt-10 pb-16 md:pt-12 md:pb-24">
+          <p class="text-xs tracking-[0.35em] uppercase text-yellow-200/80 mb-3">
+            Step 2 / Events (Good & Bad Waves)
+          </p>
 
-            <h1 class="text-2xl md:text-3xl font-semibold mb-3">
-              あなたの「良い波」と<br class="hidden md:inline" />
-              「重かった波」を思い出してみてください。
-            </h1>
+          <h1 class="text-2xl md:text-3xl font-semibold mb-3">
+            あなたの人生に現れた「波」を入力してください。
+          </h1>
 
-            <p class="text-sm md:text-base text-slate-300/90 mb-8 leading-relaxed">
-              「この頃は調子が良かった」「あの時期は重かった」——  
-              その記憶を、ざっくりとで構いませんので教えてください。<br />
-              ここで入力された情報が、
-              <span class="text-slate-50 font-medium">フーリエ解析にかける波形データ</span>になります。
-            </p>
+          <p class="text-sm md:text-base text-slate-300/90 mb-8 leading-relaxed max-w-2xl">
+            ここでは、過去に「やたら調子が良かった時期」や「重かった時期」を入力します。
+            <br />
+            この記録が、フーリエ変換にかけるための
+            <span class="text-slate-50 font-semibold">“波形データ”</span> になります。
+          </p>
 
-            <!-- 入力カード -->
-            <div class="space-y-8">
-              <!-- 好調だった時期 -->
-              <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 md:p-7 shadow-[0_0_40px_rgba(15,23,42,0.9)]">
-                <h2 class="text-base md:text-lg font-semibold mb-2 text-slate-50">
-                  好調だった時期
-                </h2>
-                <p class="text-xs md:text-sm text-slate-400 mb-5 leading-relaxed">
-                  仕事・恋愛・体調などで「流れが良かった」と感じたタイミングを選んで、
-                  だいたいの年月を入力してください。複数追加できます。
+          <!-- Card -->
+          <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 md:p-8 shadow-[0_0_40px_rgba(15,23,42,0.9)]">
+            <form class="space-y-10">
+
+              <!-- 好調時期 -->
+              <div>
+                <h2 class="text-lg font-semibold mb-3 text-slate-100">好調だった時期（Peak）</h2>
+                <p class="text-xs text-slate-400 mb-3">
+                  「人生が加速していた」「巡りが良かった」と感じた期間。
                 </p>
 
-                <!-- チップ＋年月入力（ダミーUI） -->
-                <div class="space-y-3">
-                  <!-- Row 1 -->
-                  <div class="flex flex-col md:flex-row md:items-center gap-3">
-                    <!-- タグ選択 -->
-                    <div class="flex flex-wrap gap-2 flex-1">
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-sky-400/70 bg-sky-400/10 text-[11px] md:text-xs text-sky-100 hover:bg-sky-400/20 transition-colors"
-                      >
-                        仕事がうまくいっていた
-                      </button>
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-emerald-400/70 bg-emerald-400/10 text-[11px] md:text-xs text-emerald-100 hover:bg-emerald-400/20 transition-colors"
-                      >
-                        恋愛・人間関係が充実していた
-                      </button>
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-indigo-400/70 bg-indigo-400/10 text-[11px] md:text-xs text-indigo-100 hover:bg-indigo-400/20 transition-colors"
-                      >
-                        人生が拡大していた
-                      </button>
-                    </div>
-                    <!-- 年月入力 -->
-                    <div class="flex items-center gap-2 md:w-60">
-                      <label for="good-period-1" class="text-xs text-slate-300 whitespace-nowrap">
-                        年月
-                      </label>
-                      <input
-                        id="good-period-1"
-                        type="month"
-                        class="flex-1 rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 focus:border-yellow-300/70"
-                      />
-                    </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="goodStart" class="block text-xs font-medium text-slate-100 mb-1">
+                      開始日
+                    </label>
+                    <input
+                      id="goodStart"
+                      type="date"
+                      class="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 focus:ring-2 focus:ring-yellow-300"
+                    />
                   </div>
 
-                  <!-- Row 2（追加入力例） -->
-                  <div class="flex flex-col md:flex-row md:items-center gap-3">
-                    <div class="flex flex-wrap gap-2 flex-1">
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-amber-400/70 bg-amber-400/10 text-[11px] md:text-xs text-amber-100 hover:bg-amber-400/20 transition-colors"
-                      >
-                        収入が増えた・成果が出た
-                      </button>
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-fuchsia-400/70 bg-fuchsia-400/10 text-[11px] md:text-xs text-fuchsia-100 hover:bg-fuchsia-400/20 transition-colors"
-                      >
-                        直感が冴えていた
-                      </button>
-                    </div>
-                    <div class="flex items-center gap-2 md:w-60">
-                      <label for="good-period-2" class="text-xs text-slate-300 whitespace-nowrap">
-                        年月
-                      </label>
-                      <input
-                        id="good-period-2"
-                        type="month"
-                        class="flex-1 rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 focus:border-yellow-300/70"
-                      />
-                    </div>
+                  <div>
+                    <label for="goodEnd" class="block text-xs font-medium text-slate-100 mb-1">
+                      終了日
+                    </label>
+                    <input
+                      id="goodEnd"
+                      type="date"
+                      class="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 focus:ring-2 focus:ring-yellow-300"
+                    />
                   </div>
                 </div>
 
-                <!-- 追加ボタン（ダミー） -->
-                <button
-                  type="button"
-                  class="mt-4 inline-flex items-center gap-2 text-[11px] md:text-xs text-sky-300 hover:text-sky-200"
-                >
-                  <span
-                    class="flex h-5 w-5 items-center justify-center rounded-full border border-sky-400/70 text-[13px]"
-                  >
-                    ＋
-                  </span>
-                  好調だった時期をさらに追加する
-                </button>
+                <label for="goodNote" class="block text-xs font-medium text-slate-100 mb-2 mt-3">
+                  メモ（任意）
+                </label>
+                <input
+                  id="goodNote"
+                  type="text"
+                  placeholder="例：仕事・人間関係・体調など、具体的に"
+                  class="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-300 placeholder-slate-500 focus:ring-2 focus:ring-yellow-300"
+                />
               </div>
 
-              <!-- 重さ・停滞を感じた時期 -->
-              <div class="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 md:p-7 shadow-[0_0_40px_rgba(15,23,42,0.9)]">
-                <h2 class="text-base md:text-lg font-semibold mb-2 text-slate-50">
-                  重さ・停滞を感じた時期
-                </h2>
-                <p class="text-xs md:text-sm text-slate-400 mb-5 leading-relaxed">
-                  体調・メンタル・人間関係などで「流れが重かった」と感じたタイミングを選んで、
-                  だいたいの年月を入力してください。
+              <!-- 停滞時期 -->
+              <div>
+                <h2 class="text-lg font-semibold mb-3 text-slate-100">重かった時期（Trough）</h2>
+                <p class="text-xs text-slate-400 mb-3">
+                  「なぜか調子が出なかった」「流れが止まった」と感じた期間。
                 </p>
 
-                <!-- チップ＋年月入力 -->
-                <div class="space-y-3">
-                  <!-- Row 1 -->
-                  <div class="flex flex-col md:flex-row md:items-center gap-3">
-                    <div class="flex flex-wrap gap-2 flex-1">
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-slate-500/80 bg-slate-800/60 text-[11px] md:text-xs text-slate-100 hover:bg-slate-700/80 transition-colors"
-                      >
-                        体調が重かった
-                      </button>
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-rose-400/70 bg-rose-400/10 text-[11px] md:text-xs text-rose-100 hover:bg-rose-400/20 transition-colors"
-                      >
-                        人間関係で揺れていた
-                      </button>
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-violet-400/70 bg-violet-400/10 text-[11px] md:text-xs text-violet-100 hover:bg-violet-400/20 transition-colors"
-                      >
-                        焦りや不安が続いていた
-                      </button>
-                    </div>
-                    <div class="flex items-center gap-2 md:w-60">
-                      <label for="bad-period-1" class="text-xs text-slate-300 whitespace-nowrap">
-                        年月
-                      </label>
-                      <input
-                        id="bad-period-1"
-                        type="month"
-                        class="flex-1 rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 focus:border-yellow-300/70"
-                      />
-                    </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="badStart" class="block text-xs font-medium text-slate-100 mb-1">
+                      開始日
+                    </label>
+                    <input
+                      id="badStart"
+                      type="date"
+                      class="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 focus:ring-2 focus:ring-yellow-300"
+                    />
                   </div>
 
-                  <!-- Row 2 -->
-                  <div class="flex flex-col md:flex-row md:items-center gap-3">
-                    <div class="flex flex-wrap gap-2 flex-1">
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-amber-500/80 bg-amber-500/10 text-[11px] md:text-xs text-amber-100 hover:bg-amber-500/20 transition-colors"
-                      >
-                        物事が空回りしていた
-                      </button>
-                      <button
-                        type="button"
-                        class="px-3 py-1.5 rounded-full border border-sky-500/60 bg-sky-500/10 text-[11px] md:text-xs text-sky-100 hover:bg-sky-500/20 transition-colors"
-                      >
-                        方向性を見失っていた
-                      </button>
-                    </div>
-                    <div class="flex items-center gap-2 md:w-60">
-                      <label for="bad-period-2" class="text-xs text-slate-300 whitespace-nowrap">
-                        年月
-                      </label>
-                      <input
-                        id="bad-period-2"
-                        type="month"
-                        class="flex-1 rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-300/70 focus:border-yellow-300/70"
-                      />
-                    </div>
+                  <div>
+                    <label for="badEnd" class="block text-xs font-medium text-slate-100 mb-1">
+                      終了日
+                    </label>
+                    <input
+                      id="badEnd"
+                      type="date"
+                      class="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-100 focus:ring-2 focus:ring-yellow-300"
+                    />
                   </div>
                 </div>
 
-                <!-- 追加ボタン -->
-                <button
-                  type="button"
-                  class="mt-4 inline-flex items-center gap-2 text-[11px] md:text-xs text-slate-300 hover:text-slate-100"
-                >
-                  <span
-                    class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-500/80 text-[13px]"
-                  >
-                    ＋
-                  </span>
-                  重さ・停滞を感じた時期をさらに追加する
-                </button>
+                <label for="badNote" class="block text-xs font-medium text-slate-100 mb-2 mt-3">
+                  メモ（任意）
+                </label>
+                <input
+                  id="badNote"
+                  type="text"
+                  placeholder="例：体調低下、別れ、仕事停滞など"
+                  class="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-3 py-2 text-xs text-slate-300 placeholder-slate-500 focus:ring-2 focus:ring-yellow-300"
+                />
               </div>
 
               <!-- 注意書き -->
               <div class="rounded-2xl border border-slate-800/80 bg-slate-900/40 px-4 py-3 text-xs text-slate-400 leading-relaxed">
-                <p class="mb-1">
-                  すべてを正確に思い出す必要はありません。
-                </p>
-                <p>
-                  「この前後だった」という曖昧さも、そのまま波として取り込み、
-                  フーリエ変換で周期性を抽出していきます。
-                </p>
+                フーリエ解析の精度は、入力する「波の時期の幅」によって変化します。  
+                完璧な期間でなくても問題ありません。  
+                あなたの感覚がもっとも大切です。
               </div>
 
-              <!-- ボタン群 -->
+              <!-- Buttons -->
               <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button
-                  type="button"
-                  class="inline-flex flex-1 items-center justify-center px-6 py-3 rounded-full bg-yellow-300 text-slate-900 text-sm font-semibold shadow-lg shadow-yellow-300/20 hover:bg-yellow-200 transition-colors"
-                  onclick="window.location.href='/analysis.html';"
-                >
-                  波形を解析する（フーリエ変換へ）
-                </button>
                 <a
-                  href="/start.html"
+                  href="analysis.html"
+                  class="inline-flex flex-1 items-center justify-center px-6 py-3 rounded-full bg-yellow-300 text-slate-900 text-sm font-semibold hover:bg-yellow-200 transition-colors"
+                >
+                  次へ進む（周期の分析）
+                </a>
+
+                <a
+                  href="start.html"
                   class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-slate-600 text-sm text-slate-200 hover:border-yellow-300/70 hover:text-yellow-200 transition-colors"
                 >
-                  前のステップに戻る
+                  戻る
                 </a>
               </div>
-            </div>
+
+            </form>
           </div>
         </section>
       </main>
 
       <!-- Footer -->
       <footer class="border-t border-slate-800/80 bg-slate-950/60">
-        <div class="mx-auto max-w-6xl px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© 2025 神羅万象グリッド Fourier Oracle</p>
-          <div class="flex gap-4">
-            <a href="#about" class="hover:text-slate-300 transition-colors">About</a>
-            <a href="#" class="hover:text-slate-300 transition-colors">プライバシー</a>
-            <a href="#" class="hover:text-slate-300 transition-colors">利用規約</a>
-          </div>
+        <div class="mx-auto max-w-6xl px-4 py-5 text-xs text-slate-500">
+          © 2025 神羅万象グリッド Fourier Oracle
         </div>
       </footer>
+
     </div>
   </body>
 </html>
